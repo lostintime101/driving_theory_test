@@ -1,0 +1,934 @@
+{
+    "quiz": {
+        "q91": {
+            "question": {
+                "text": "In addition to his/her driving license, a driver must have at hand which document while driving.",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "National ID card",
+                    "picture": null
+                },
+                "2": {
+                    "text": "Social security card",
+                    "picture": null
+                },
+                "3": {
+                    "text": "Copy of the car's registration",
+                    "picture": null
+                },
+                "4": {
+                    "text": "Copy of the house registration.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "3",
+                "text": "Copy of the car's registration"
+            },
+            "tags": [
+              "non-picture"
+            ]
+        },
+        "q92": {
+            "question": {
+                "text": "A driver violates the road traffic law and receives a ticket, within how many days must he pay the fine?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "7 days.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "10 days.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "15 days.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "30 days.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "1",
+                "text": "7 days."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q93": {
+            "question": {
+                "text": "A temporary driving license is valid for how many years?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "1 year.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "2 years.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "3 years.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "5 years.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "2",
+                "text": "2 years."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q94": {
+            "question": {
+                "text": "How much additional money will be charged to a vehicle that does not pay annual tax within the stipulated time limit?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "1% per month.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "5% per month.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "1% per year.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "5% per year.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "1",
+                "text": "1% per month."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q95": {
+            "question": {
+                "text": "How many years old must the car be before inspection is required when making the annual tax payment?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "3 years.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "5 years.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "7 years.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "10 years.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "3",
+                "text": "7 years."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q96": {
+            "question": {
+                "text": "What is the speed limit within municipal limits, Bangkok, and Pattaya?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "70 Km/H.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "80 Km/H.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "90 Km/H.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "100 Km/H.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "2",
+                "text": "80 Km/H."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q97": {
+            "question": {
+                "text": "What is the speed limit outside municipal limits, Bangkok and Pattaya?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "70 Km/H.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "80 Km/H.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "90 Km/H.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "100 Km/H.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "3",
+                "text": "90 Km/H."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q98": {
+            "question": {
+                "text": "To park on the left driving lane, what is the maximum distance from the pavement to park or stop the vehicle?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "Not exceeding 20 centimeters.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "Not exceeding 25 centimeters.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "Not exceeding 30 centimeters.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "Not exceeding 35 centimeters.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "1",
+                "text": "Not exceeding 25 centimeters."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q99": {
+            "question": {
+                "text": "Who is the person exempted from wearing motorcycle helmet when driving?",
+                "picture": "xxx.jpg"
+            },
+            "options": {
+                "1": {
+                    "text": "Seniors over 65.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "Traffic officers.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "Motorcycle passengers.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "Novice, monk.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "4",
+                "text": "Novice, monk."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q100": {
+            "question": {
+                "text": "What is the maximum passenger for motorcycle?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "1 passenger.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "2 passengers.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "3 passengers.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "4 passengers.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "1",
+                "text": "1 passenger."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q101": {
+            "question": {
+                "text": "How many years old must the motorcycle be before inspection is required when making the annual tax payment?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "1 year.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "3 years.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "5 years.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "7 years.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "3",
+                "text": "5 years."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q102": {
+            "question": {
+                "text": "Vehicles which can be registered must have the following characteristics:",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "The car must have the correct fittings and passed a vehicle inspection.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "The car must have the correct fittings.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "Vehicles which have passed a private vehicle inspection.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "Cars purchased from general car dealers.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "1",
+                "text": "The car must have the correct fittings and passed a vehicle inspection."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q103": {
+            "question": {
+                "text": "Which item is correct?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "Motorcycle that has reached 5 years of life, wishing to renew annual taxes must bring the car to a private condition examination center.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "The car has 5 years of service life. Those wishing to renew their annual taxes must have the car inspected at a private inspection facility.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "Motorcycle that has reached 7 years of life, wishing to renew annual tax must bring the car to be inspected at a private condition.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "Car with a lifetime of 10 years, wishing to renew the annual tax must have the car to be checked at a private condition.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "1",
+                "text": "Motorcycle that has reached 5 years of life, wishing to renew annual taxes must bring the car to a private condition examination center."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q104": {
+            "question": {
+                "text": "How many years old does the applicant need to be to hold a temporary car driving license?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "15 years old (completely).",
+                    "picture": null
+                },
+                "2": {
+                    "text": "18 years old (completely).",
+                    "picture": null
+                },
+                "3": {
+                    "text": "20 years old (completely).",
+                    "picture": null
+                },
+                "4": {
+                    "text": "22 years old (completely).",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "2",
+                "text": "18 years old (completely)."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q105": {
+            "question": {
+                "text": "What is the penalty for anyone who drives a car without a driver’s license?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "Fine no more than 1,000 baht.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "Imprisonment of not more than 1 month or fine of not more than 1,000 baht or both.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "Fine no more than 2,000 baht.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "Imprisonment of not more than 3 months or fine of not more than 2,000 baht or both.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "3",
+                "text": "Fine no more than 2,000 baht."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q106": {
+            "question": {
+                "text": "What is the safety zone mean?",
+                "picture": "xxx.jpg"
+            },
+            "options": {
+                "1": {
+                    "text": "The area that the driver can take the car through.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "Districts where pedestrians can cross paths without stopping to wait.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "The area has a mark indicating that the driver is safe to continue driving.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "The area in the car park marked with a clearly visible sign at all times for for pedestrians crossing the path to stop waiting or allowing people to get in or out of the car to stop and wait before crossing over.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "4",
+                "text": "The area in the car park marked with a clearly visible sign at all times for for pedestrians crossing the path to stop waiting or allowing people to get in or out of the car to stop and wait before crossing over."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q107": {
+            "question": {
+                "text": "When the officer extending any of his arm to the same level as shoulder and pose his hand perpendicular to the ground, what does this mean?",
+                "picture": "107.jpg"
+            },
+            "options": {
+                "1": {
+                    "text": "The driver approaching from the direction of the arm must stop the vehicle.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "The driver who approaches from the behind direction of the officer must stop the vehicle.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "The driver approaching from the direction of the arm must continue forward.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "The driver who approaches from the behind direction of the officer must continue forward.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "1",
+                "text": "The driver approaching from the direction of the arm must stop the vehicle."
+            },
+            "tags": [
+                "quest-picture"
+            ]
+        },
+        "q108": {
+            "question": {
+                "text": "How far must the driver drive from the car in front?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "Enough to be able to stop the car safely if necessary.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "No less than 5 meters.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "No less than 10 meters.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "No less than 20 meters.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "1",
+                "text": "Enough to be able to stop the car safely if necessary."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q109": {
+            "question": {
+                "text": "In which areas is a driver permitted to make a U-turn?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "Roadway marked with a no U-turn sign.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "On a bridge.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "150 meters distance from the foot of a bridge.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "A safety zone.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "3",
+                "text": "150 meters distance from the foot of a bridge."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q110": {
+            "question": {
+                "text": "When arriving at the railroad and there is a passing train What should the driver do?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "Stop waiting for the signal light and turn on the emergency light.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "Give a warning signal and drive through.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "Drive through quickly.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "Stop the car at least 5 meters from the railroad.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "4",
+                "text": "Stop the car at least 5 meters from the railroad."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q111": {
+            "question": {
+                "text": "What is the maximum blood alcohol level for driving?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "Not exceeding 50 mg percent.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "Not exceeding 60 mg percent.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "Not exceeding 70 mg percent.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "Not exceeding 80 mg percent.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "1",
+                "text": "Not exceeding 50 mg percent."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q112": {
+            "question": {
+                "text": "What is the penalty for driving while detecting alcohol in the body more than the legal limit?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "Imprisonment of not more than 3 months or a fine of 1,000 to. 50,000 baht.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "Imprisonment of not more than 1 year or a fine of 5,000 to. 20,000 baht or both.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "Fine not more than 5,000 baht.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "Fine not exceeding 10,000 baht.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "2",
+                "text": "Imprisonment of not more than 1 year or a fine of 5,000 to. 20,000 baht or both."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q113": {
+            "question": {
+                "text": "Which is correct?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "The truck must drive in the rightmost lane.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "The passenger truck must drive in the rightmost lane.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "Changing the lane to the right or left. Do not look at the left or right mirror.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "Motorcycles must drive in the left lane of the vehicle.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "4",
+                "text": "Motorcycles must drive in the left lane of the vehicle."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q114": {
+            "question": {
+                "text": "Cars with slow speeds What should the driver do?",
+                "picture": null
+            },
+            "options": {
+                "1": {
+                    "text": "Drive on the shoulder.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "Drive on the right edge.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "Drive close to the left edge.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "Can drive on both the left and right.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "3",
+                "text": "Drive close to the left edge."
+            },
+            "tags": [
+                "non-picture"
+            ]
+        },
+        "q115": {
+            "question": {
+                "text": "What should the driver do when seeing this mark?",
+                "picture": "115.jpg"
+            },
+            "options": {
+                "1": {
+                    "text": "Be extra careful. Then stop the car.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "Be extra careful.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "Drive slowly if you see that it is unsafe for other cars or pedestrians in the way ahead. Have to stop the car before reaching the line, make way.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "Increase caution and park the car.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "3",
+                "text": "Drive slowly if you see that it is unsafe for other cars or pedestrians in the way ahead. Have to stop the car before reaching the line, make way."
+            },
+            "tags": [
+                "quest-picture"
+            ]
+        },
+        "q116": {
+            "question": {
+                "text": "When this road marking is found What should the driver do?",
+                "picture": "116.jpg"
+            },
+            "options": {
+                "1": {
+                    "text": "Do not turn left or turn right.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "Do not drive straight or turn right.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "Drive in one direction on the left.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "Car on the solid line must not pass or straddle the solid line But the car on the side of the dotted line may overtake when it is considered safe.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "4",
+                "text": "Car on the solid line must not pass or straddle the solid line But the car on the side of the dotted line may overtake when it is considered safe."
+            },
+            "tags": [
+                "quest-picture"
+            ]
+        },
+        "q117": {
+            "question": {
+                "text": "When this sign is found What should the driver do?",
+                "picture": "117.jpg"
+            },
+            "options": {
+                "1": {
+                    "text": "Let the driver drive fast Lines allow to go immediately.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "The driver to drive slowly. Then overtake.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "Always stop before reaching the transverse line.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "Let the driver slow down and speed up first.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "3",
+                "text": "Always stop before reaching the transverse line."
+            },
+            "tags": [
+                "quest-picture"
+            ]
+        },
+        "q118": {
+            "question": {
+                "text": "This sign What does it mean?",
+                "picture": "118.jpg"
+            },
+            "options": {
+                "1": {
+                    "text": "No trucks of all kinds.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "Motorcycles are prohibited.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "All cars are prohibited.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "All vehicles are allowed to pass.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "2",
+                "text": "Motorcycles are prohibited."
+            },
+            "tags": [
+                "quest-picture"
+            ]
+        },
+        "q119": {
+            "question": {
+                "text": "When seeing this sign What should the driver do?",
+                "picture": "119.jpg"
+            },
+            "options": {
+                "1": {
+                    "text": "A car with at least 3 people can use this lane.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "A car with 1 person can enter this channel.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "No more than 3 people enter this lane.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "There are 2 people sitting in. Can enter this lane.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "1",
+                "text": "A car with at least 3 people can use this lane."
+            },
+            "tags": [
+                "quest-picture"
+            ]
+        },
+        "q120": {
+            "question": {
+                "text": "When seeing this sign What should the driver do?",
+                "picture": "120.jpg"
+            },
+            "options": {
+                "1": {
+                    "text": "Drive fast Increase caution The road ahead has a narrow bridge.",
+                    "picture": null
+                },
+                "2": {
+                    "text": "Drive slowly. Increase caution The way ahead is a steep downhill.",
+                    "picture": null
+                },
+                "3": {
+                    "text": "Drive quickly. Increase caution The road ahead is a steep hill way.",
+                    "picture": null
+                },
+                "4": {
+                    "text": "Drive slowly. And be extra careful The way ahead must use the left bypass.",
+                    "picture": null
+                }
+            },
+            "answer": {
+                "number": "4",
+                "text": "Drive slowly. And be extra careful The way ahead must use the left bypass."
+            },
+            "tags": [
+                "quest-picture"
+            ]
+        }
+    }
+}

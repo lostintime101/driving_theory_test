@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{question}} out of {{total}}</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .list-unstyled{
+        text-align: left;
+      }
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      body {
+        background-image: linear-gradient(180deg, #eee, #fff 100px, #fff);
+      }
+
+      .container {
+        max-width: 960px;
+      }
+
+      .pricing-header {
+        max-width: 700px;
+      }
+
+      .answer_button {
+        vertical-align: bottom;
+      }
+
+      #exit {
+        cursor:pointer;
+      }
+    </style>
+    <script>
+
+        <!--    Pop up for user to confirm they didn't mis-click and really wish to exit    -->
+
+        function confirmFunction() {
+            if (confirm("All progress will be lost. Are you sure?") == true) {
+                window.location.href='/';
+                }
+            else { void('') }
+        }
+
+       <!--    Countdown timer logic    -->
+
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+                setInterval(function () {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    display.textContent = minutes + ":" + seconds;
+
+                    if (--timer < 0) {
+                        timer = duration;
+                    }
+                }, 1000);
+    }
+
+        window.onload = function () {
+            display = document.querySelector('#time');
+            startTimer({{seconds}}, display);
+    };
+    </script>
+  </head>
+  <body>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check" viewBox="0 0 16 16">
+    <title>Check</title>
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+</svg>
+<!--class="p-3 text-bg-dark"-->
+<div class="container py-3">
+  <header>
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center text-dark text-decoration-none">
+        <span class="fs-4">Thai Driving License Theory Test Simulation</span>
+      </a>
+
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a class="me-5 py-2 text-dark text-decoration-none">{{question}} / {{total}}</a>
+        <a class="me-5 py-2 text-dark text-decoration-none">Time remaining: <span id="time">--:--</span></a>
+        <a class="py-2 text-dark text-decoration-none" id="exit" onclick="confirmFunction()">Exit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="progress">
+      <div class="progress-bar bg-secondary progress-bar-striped" role="progressbar" aria-label="Basic example" style="width: {{progress}}%" aria-valuenow={{question}} aria-valuemin="0" aria-valuemax= {{total}} >{{progress}}%</div>
+    </div>
+
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-7 fw-normal">{{ question_text }}</h1>
+      {% if question_pic != none %}
+        <img class="bg-light border rounded-3 border-muted border-1 shadow-sm" src="/static/images/{{ question_pic }}" alt="question picture" width="250">
+      {% endif %}
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 mb-2 text-center">
+      <div class="col gy-3">
+        <div class="card mb-4 rounded-3 shadow-sm h-100">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Answer 1</h4>
+          </div>
+          <div class="card-body">
+            {% if answer1_pic != none %}
+              <img class="bg-light border rounded-3" src="/static/images/{{ answer1_pic }}" alt="question picture" width="250">
+            {% endif %}
+            <ul class="list-unstyled mt-3 mb-4">
+              <li><h5>{{ answer1_text }}</h5></li>
+            </ul>
+            <form class="answer_button" action="/exam/" method="post" novalidate>
+              <input type="hidden" name="Correct" value="{{correct_ans}}"/>
+              <input type="hidden" name="Question" value="{{question}}"/>
+              <input type="hidden" name="User_pic" value="{{ answer1_pic }}"/>
+              <input type="hidden" name="User_txt" value="{{ answer1_text }}"/>
+              <input type="hidden" name="Answer" value="1"/>
+              <input type="submit" class="w-100 btn btn-lg btn-secondary" name="Choice" value="Select"/>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col gy-3">
+        <div class="card mb-4 rounded-3 shadow-sm h-100">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Answer 2</h4>
+          </div>
+          <div class="card-body">
+            {% if answer2_pic != none %}
+              <img class="bg-light border rounded-3" src="/static/images/{{ answer2_pic }}" alt="question picture" width="250">
+            {% endif %}
+            <ul class="list-unstyled mt-3 mb-4">
+              <li><h5>{{ answer2_text }}</h5></li>
+            </ul>
+            <form class="answer_button" action="/exam/" method="post" novalidate>
+              <input type="hidden" name="Correct" value="{{correct_ans}}"/>
+              <input type="hidden" name="Question" value="{{question}}"/>
+              <input type="hidden" name="User_pic" value="{{ answer2_pic }}"/>
+              <input type="hidden" name="User_txt" value="{{ answer2_text }}"/>
+              <input type="hidden" name="Answer" value="2"/>
+              <input type="submit" class="w-100 btn btn-lg btn-secondary" name="Choice" value="Select"/>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col gy-3">
+        <div class="card mb-4 rounded-3 shadow-sm h-100">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Answer 3</h4>
+          </div>
+          <div class="card-body">
+            {% if answer2_pic != none %}
+              <img class="bg-light border rounded-3" src="/static/images/{{ answer3_pic }}" alt="question picture" width="250">
+            {% endif %}
+            <ul class="list-unstyled mt-3 mb-4">
+              <li><h5>{{ answer3_text }}</h5></li>
+            </ul>
+            <form class="answer_button" action="/exam/" method="post" novalidate>
+              <input type="hidden" name="Correct" value="{{correct_ans}}"/>
+              <input type="hidden" name="Question" value="{{question}}"/>
+              <input type="hidden" name="User_pic" value="{{ answer3_pic }}"/>
+              <input type="hidden" name="User_txt" value="{{ answer3_text }}"/>
+              <input type="hidden" name="Answer" value="3"/>
+              <input type="submit" class="w-100 btn btn-lg btn-secondary" name="Choice" value="Select"/>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col gy-3">
+        <div class="card mb-4 rounded-3 shadow-sm h-100">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Answer 4</h4>
+          </div>
+          <div class="card-body">
+            {% if answer2_pic != none %}
+              <img class="bg-light border rounded-3" src="/static/images/{{ answer4_pic }}" alt="question picture" width="250">
+            {% endif %}
+            <ul class="list-unstyled mt-3 mb-4">
+              <li><h5>{{ answer4_text }}</h5></li>
+            </ul>
+            <form class="answer_button" action="/exam/" method="post" novalidate>
+              <input type="hidden" name="Correct" value="{{correct_ans}}"/>
+              <input type="hidden" name="Question" value="{{question}}"/>
+              <input type="hidden" name="User_pic" value="{{ answer4_pic }}"/>
+              <input type="hidden" name="User_txt" value="{{ answer4_text }}"/>
+              <input type="hidden" name="Answer" value="4"/>
+              <input type="submit" class="w-100 btn btn-lg btn-secondary" name="Choice" value="Select"/>
+            </form>
+          </div>
+        </div>
+      </div>
+                <!--    Previous/Next and Finish navigation   -->
+    {% if question != 1 %}
+    <div class="col gy-3">
+      <form action="/exam/p" method="post" novalidate>
+        <input class="btn btn-outline-secondary" type="submit" name="Choice" value="Previous Question"/>
+    </form>
+    </div>
+    {% endif %}
+
+    {% if question != total %}
+    <div class="col gy-3">
+      <form action="/exam/" method="post" novalidate>
+        <input type="hidden" name="Answer" value="0"/>
+        <input class="btn btn-outline-secondary" type="submit" name="Choice" value="Next Question"/>
+    </form>
+    </div>
+    {% endif %}
+    </div>
+
+  </main>
+    <footer>
+    <center><p>© {{year}} - by <a href="https://github.com/lostintime101" class="text-black">Impermanent Gains</a>.</p></center>
+  </footer>
+</div>
+  </body>
+
+</html>
