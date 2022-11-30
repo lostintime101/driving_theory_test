@@ -42,7 +42,7 @@ countdown_thread = threading.Thread(target=countdown)
 # TODO remove this test at end
 @app.route('/jumbo/')
 def jumbo():
-    return render_template("headers.html",
+    return render_template("modals.html",
                            year=YEAR,
                            total_quest = NUMBER_OF_QUESTIONS,
                            total_correct="10",
@@ -287,14 +287,14 @@ if __name__ == "__main__":
 
 # TODO deploy to the web
 
-
 # TODO add about page
-# TODO hero video on cover page
 
-# TODO retry the CSS now you've moved it to static folder
 # TODO missing picture 81.4.jpg
 
 # TODO what if user, uses backpage or forwardpage to navigate?
 # TODO BUG if exam times out, then retake, time won't reset or display
 
 # TODO mini-test / full simulation options
+
+
+# TODO hero video on cover page - tried twice can't get it to autoplay
