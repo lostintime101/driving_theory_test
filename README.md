@@ -1,14 +1,16 @@
-# driving_theory_test
-Thai Driving License Theory Test Simulation
+# driving_license_theory_test
 
-Thai Driving License Theory Test Simulation (Car & Motorbike)
+#### Thai Driving License Theory Test Simulation (Car & Motorbike)
 
-Project was built using Python Flask with the front end using Bootstrap
+This app is hosted at: https://thaidrivingtest.com/
 
-Database of 150 questions, many with pictures (Small: 250 pixel width)
+The project was put together in PyCharm using Python 3.9 with Flask, and Gunicorn WSGI. The front end makes extensive use of Bootstrap. 
 
-Questions are taken from the Driving License Requisition Manual issued by the Thailand Department of Land Transport
+Questions are adapted from the Driving License Requisition Manual issued by the Thailand Department of Land Transport
 
-Exam is multiple choice 50 questions in 50 minutes
+The question database contains 150 questions, many with pictures (Small: 250 pixel width).
+
+The app simulates the conditions of the real exam: 50 questions in 50 minutes. Each question is multiple choice with 4 options. Pass rate is 90%.
 
 Question wording matches that of the real exam (i.e. occasionally confusing, often non-native sounding English)
+
