@@ -4,37 +4,28 @@ import time
 import threading
 import sqlite3
 
-# global variables
+# --- GLOBAL VARIABLES ---
 MINI_NUMBER_OF_QUESTIONS = 10
 FULL_NUMBER_OF_QUESTIONS = 50
 SECONDS_PER_QUESTION = 60
 YEAR = time.localtime().tm_year
 
-TIME_FOR_MINI_TEST = (MINI_NUMBER_OF_QUESTIONS * SECONDS_PER_QUESTION)
-TIME_FOR_FULL_TEST = (FULL_NUMBER_OF_QUESTIONS * SECONDS_PER_QUESTION)  # TODO rework this so it's 1 variable, time per question i.e. 60 seconds
-
-
-number_of_questions = 1
-time_for_test = (number_of_questions * SECONDS_PER_QUESTION)
-
-# timer related variables
-time_is_up = False
-timer_reset = False
-
-# question related variables
+# --- QUESTION RELATED VARIABLES ---
 score = 0
 current_quest = -1
 questions = []
 question_bank = []
+number_of_questions = 1  # initially set to 1, updated later based on user's choice of exam
+
+# --- TIMER RELATED VARIABLES ---
+time_is_up = False
+seconds_left = 1000000  # initially set to 1000000, updated later based on user's choice of exam
 
 # initiates app
 app = Flask(__name__)
 
-# number of seconds left
-my_timer = TIME_FOR_MINI_TEST
 
-
-# returns question information from SQL database
+# this function given a question ID returns information for that question from the SQL database
 def database_call(q_id):
     db = sqlite3.connect("question_bank.db")
     cursor = db.cursor()
@@ -50,16 +41,14 @@ def database_call(q_id):
 
 # exam countdown timer
 def countdown():
-    global my_timer, time_is_up, timer_reset
+    global seconds_left, time_is_up
 
-    timer_reset = False
+    time_is_up = False
 
-    for x in range(my_timer):
-        my_timer = my_timer - 1
+    for x in range(seconds_left):
+        seconds_left = seconds_left - 1
         time.sleep(1)
-        print(my_timer)
-        if timer_reset:
-            return 0
+        print(seconds_left)
 
     time_is_up = True
     print("TIME'S UP!")
@@ -98,25 +87,27 @@ def create_question_bank():
 def home():
     global current_quest, score, questions, question_bank, time_is_up
 
-    # everything is reset (score, timer etc.)
+    # everything is reset (score, timer, questions etc.)
     score = 0
     current_quest = -1
     time_is_up = False
+    questions = []
+    question_bank = []
 
     return render_template("cover.html",
                            year=YEAR,
                            full_questions=FULL_NUMBER_OF_QUESTIONS,
-                           full_time=(int((FULL_NUMBER_OF_QUESTIONS * SECONDS_PER_QUESTION)/60)),
+                           full_time=(int((FULL_NUMBER_OF_QUESTIONS * SECONDS_PER_QUESTION) / 60)),
                            mini_questions=MINI_NUMBER_OF_QUESTIONS,
-                           mini_time=(int((MINI_NUMBER_OF_QUESTIONS * SECONDS_PER_QUESTION)/60)))
+                           mini_time=(int((MINI_NUMBER_OF_QUESTIONS * SECONDS_PER_QUESTION) / 60)))
 
 
 # standard question page template
 @app.route('/exam/', methods=['GET', 'POST'])
 def exam():
-    global number_of_questions, current_quest, score, my_timer, question_bank, time_is_up, timer_reset
+    global number_of_questions, current_quest, score, seconds_left, question_bank, time_is_up
 
-    # start countdown timer if not already started (i.e. on the 1st question)
+    # start countdown timer if not already started
     try:
         countdown_thread.start()
     except RuntimeError:
@@ -159,19 +150,20 @@ def exam():
             pass_fail = "PASS🥳"
 
         time_up = False
-        # if this boolean is set to True it shows warning to user on the results page that their time ran out
+
+        # if time_is_up boolean is set True an extra "time ran out" message is shown on the results
         if time_is_up:
             time_up = True
 
-        # calculates time that remained at end in minutes
-        seconds = my_timer % 60
-        mins = int((my_timer - seconds) / 60)
+        # calculates the time that remained at end of the test in minutes
+        seconds = seconds_left % 60
+        mins = int((seconds_left - seconds) / 60)
         seconds = str(seconds)
         if len(seconds) == 1:
             seconds = "0" + seconds
         time_remain = str(mins) + ":" + str(seconds)
 
-        total_time = time_for_test - my_timer
+        total_time = (number_of_questions * SECONDS_PER_QUESTION) - seconds_left
 
         # calculates time per question
         time_per_quest = int(total_time / number_of_questions)
@@ -183,9 +175,6 @@ def exam():
         if len(seconds) == 1:
             seconds = "0" + seconds
         total_time = str(mins) + ":" + str(seconds)
-
-        # stops the timer
-        timer_reset = True
 
         return render_template("results.html",
                                year=YEAR,
@@ -226,7 +215,7 @@ def exam():
                            answer4_text=question[9],
                            answer4_pic=question[10],
                            correct_ans=question[11],
-                           seconds=my_timer,
+                           seconds=seconds_left,
                            progress=int((quest / number_of_questions) * 100)
                            )
 
@@ -234,7 +223,7 @@ def exam():
 # user navigates backwards using "previous button", revised question page template
 @app.route('/exam/p', methods=['GET', 'POST'])
 def previous_exam():
-    global current_quest, my_timer, time_is_up, score, question_bank
+    global current_quest, seconds_left, time_is_up, score, question_bank
 
     # check for time up. If so, send to results page
     # TODO issue here, this is not enough info to display proper results page
@@ -242,7 +231,7 @@ def previous_exam():
         return render_template("results.html",
                                year=YEAR,
                                total=number_of_questions,
-                               seconds=my_timer
+                               seconds=seconds_left
                                )
 
     # returns to previous question
@@ -271,15 +260,15 @@ def previous_exam():
                            answer4_text=question[9],
                            answer4_pic=question[10],
                            correct_ans=question[11],
-                           seconds=my_timer,
+                           seconds=seconds_left,
                            progress=int((quest / number_of_questions) * 100)
                            )
 
 
-# About page
+# Pre-exam page with instructions for user
 @app.route('/pre-exam/', methods=['GET', 'POST'])
 def pre_exam():
-    global number_of_questions, my_timer
+    global number_of_questions, seconds_left
 
     exam_type = ""
 
@@ -292,7 +281,7 @@ def pre_exam():
     else:
         number_of_questions = MINI_NUMBER_OF_QUESTIONS
 
-    my_timer = number_of_questions * 60
+    seconds_left = number_of_questions * 60
 
     create_question_bank()
 
@@ -316,10 +305,8 @@ if __name__ == "__main__":
 
 
 # Urgent
-# TODO BUG timer keeps resetting, timer is messed up
-# TODO BUG question bank not refreshing each time when doing quick test
-# TODO BUG if exam times out, then retake, time won't reset or display
-# TODO missing picture 81.4.jpg / 51.4.jpg
+# TODO what if go over time?
+# TODO missing picture 81.4.jpg (should be no picture) / 51.4.jpg
 
 # Non urgent
 # TODO add scroll to top on results page
