@@ -31,7 +31,10 @@
         {% endif %}
 
         <h5>Percentage score: <b>{{ percent_score }}%</b></h5>
-        <h5>You completed the exam in <b>{{ total_time }}</b> minutes with <b>{{ time_remain }}</b> minutes remaining.</h5>
+        {% if time_up != True %}
+          <h5>You completed the exam in <b>{{ total_time }}</b> minutes.</h5>
+        {% endif %}
+        <h5><b>{{ time_remain }}</b> minutes remaining.</h5>
         <h5>Average time per question: <b>{{ time_per_quest }}</b> seconds</h5>
         <br>
         <form action="{{ url_for('home') }}">

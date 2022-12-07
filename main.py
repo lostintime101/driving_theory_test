@@ -46,12 +46,14 @@ def countdown():
     time_is_up = False
 
     for x in range(seconds_left):
-        seconds_left = seconds_left - 1
-        time.sleep(1)
-        print(seconds_left)
+        while not time_is_up:
+            seconds_left = seconds_left - 1
+            time.sleep(1)
+            print(seconds_left)
 
-    time_is_up = True
-    print("TIME'S UP!")
+            if seconds_left <= 0:
+                time_is_up = True
+                print("TIME'S UP!")
 
 
 # timer needs to run in parallel with other logic
@@ -85,14 +87,16 @@ def create_question_bank():
 
 @app.route('/')
 def home():
-    global current_quest, score, questions, question_bank, time_is_up
+    global current_quest, score, questions, question_bank, time_is_up, seconds_left
 
     # everything is reset (score, timer, questions etc.)
     score = 0
     current_quest = -1
     time_is_up = False
+    seconds_left = 0
     questions = []
     question_bank = []
+
 
     return render_template("cover.html",
                            year=YEAR,
@@ -176,6 +180,9 @@ def exam():
             seconds = "0" + seconds
         total_time = str(mins) + ":" + str(seconds)
 
+        # turn off the clock
+        seconds_left = 0
+
         return render_template("results.html",
                                year=YEAR,
                                total_quest=number_of_questions,
@@ -198,6 +205,8 @@ def exam():
     question_bank[current_quest]["true_txt"] = question[(int(question[11]) * 2) + 1]
     question_bank[current_quest]["quest_txt"] = question[1]
     question_bank[current_quest]["quest_pic"] = question[2]
+
+    print("this is seconds left", seconds_left)
 
     # serves up new question data to template
     return render_template("question.html",
@@ -268,7 +277,7 @@ def previous_exam():
 # Pre-exam page with instructions for user
 @app.route('/pre-exam/', methods=['GET', 'POST'])
 def pre_exam():
-    global number_of_questions, seconds_left
+    global number_of_questions, seconds_left, countdown_thread
 
     exam_type = ""
 
@@ -281,9 +290,15 @@ def pre_exam():
     else:
         number_of_questions = MINI_NUMBER_OF_QUESTIONS
 
-    seconds_left = number_of_questions * 60
+    seconds_left = number_of_questions * SECONDS_PER_QUESTION
 
     create_question_bank()
+
+    # start countdown timer if not already started
+    try:
+        countdown_thread = threading.Thread(target=countdown)
+    except RuntimeError:
+        pass
 
     return render_template("pre-exam.html",
                            year=YEAR,
