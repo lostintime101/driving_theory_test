@@ -56,7 +56,7 @@ def countdown():
                 print("TIME'S UP!")
 
 
-# timer needs to run in parallel with other logic
+# set up thread for timer to run parallel with other logic
 countdown_thread = threading.Thread(target=countdown)
 
 
@@ -96,7 +96,6 @@ def home():
     seconds_left = 0
     questions = []
     question_bank = []
-
 
     return render_template("cover.html",
                            year=YEAR,
@@ -234,15 +233,6 @@ def exam():
 def previous_exam():
     global current_quest, seconds_left, time_is_up, score, question_bank
 
-    # check for time up. If so, send to results page
-    # TODO issue here, this is not enough info to display proper results page
-    if time_is_up:
-        return render_template("results.html",
-                               year=YEAR,
-                               total=number_of_questions,
-                               seconds=seconds_left
-                               )
-
     # returns to previous question
     current_quest -= 1
     q = question_bank[current_quest]["question"]
@@ -294,7 +284,7 @@ def pre_exam():
 
     create_question_bank()
 
-    # start countdown timer if not already started
+    # create a new thread for the countdown timer to run in parallel if not already running
     try:
         countdown_thread = threading.Thread(target=countdown)
     except RuntimeError:
@@ -319,14 +309,3 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 
-# Urgent
-# TODO what if go over time?
-# TODO missing picture 81.4.jpg (should be no picture) / 51.4.jpg
-
-# Non urgent
-# TODO add scroll to top on results page
-# TODO test for responsiveness across various devices
-# TODO remove debug on live site
-# TODO redo text on about page
-
-# TODO add automated unit tests
