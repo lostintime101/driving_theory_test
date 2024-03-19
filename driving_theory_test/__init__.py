@@ -11,7 +11,7 @@ def create_app(*args, **kwargs):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
-        SECRET_KEY="dev", DATABASE=os.path.join(app.root_path, "question_bank.db"), YEAR=datetime.now().strftime("%Y")
+        SECRET_KEY="dev", DATABASE=os.path.join(app.root_path, "question_bank.db")
     )
     from . import home, db, exam
 
@@ -23,5 +23,9 @@ def create_app(*args, **kwargs):
     app.config["JWT_COOKIE_CSRF_PROTECT"] = False
     app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=2)
     JWTManager(app)
+
+    @app.context_processor
+    def inject_now():
+        return {'now': datetime.utcnow()}
 
     return app
