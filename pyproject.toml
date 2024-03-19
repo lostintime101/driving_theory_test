@@ -1,0 +1,20 @@
+[project]
+name = "driving_theory_test"
+version = "2.0.0"
+description = "Thai Driving License Theory Test Simulation (Car & Motorbike)"
+authors = [
+    {email = "mbmatthewbrennan@gmail.com"},
+    {email = "impermanent_gains@proton.me"},
+    {email = "baptiste@swano-lab.net"}
+]
+dependencies = [
+    "flask ~= 3.0.2",
+    "gunicorn == 21.2.0",
+    "Jinja2 == 3.1.3",
+    "flask-jwt-extended == 4.6.0",
+]
+license = {file = "LICENSE.md"}
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"

@@ -14,3 +14,17 @@ The app simulates the conditions of the real exam: 50 questions in 50 minutes. E
 
 Question wording matches that of the real exam (i.e. occasionally confusing, often non-native sounding English)
 
+##### Technical spec 
+
+Start the App for development
+
+```bash
+    pip install -e .
+    python driving_theory_test
+```
+
+Start the App for deployment in prod
+```bash
+    pip install -U .
+    gunicorn 'driving_theory_test:create_app()'
+```

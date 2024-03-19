@@ -1,0 +1,33 @@
+{% extends "layout/base.html" %}
+{% set active_page = 'exam' %}
+{% block title %}Theory Test{% endblock %}
+{% block header %}
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+        <a class="d-flex align-items-center text-white text-decoration-none">
+            <span class="fs-4">Theory Test Simulation</span>
+        </a>
+    </div>
+{% endblock %}
+{% block main %}
+    <div class="p-5 mb-4 bg-dark bg-gradient text-white rounded-3">
+        <div class="container-fluid py-5">
+            <p class="display-5 fw-bold text-center">----- Read first -----</p>
+            <br>
+            <ul class="mb-4">
+                <li><h5>You have {{ number_of_questions }} minutes to complete {{ number_of_questions }} questions.</h5></li>
+                <li><h5>Pass rate is 90%.</h5></li>
+                <li><h5>Questions answered incorrectly are revealed only upon finishing the test.</h5></li>
+                <li><h5>Navigate through questions using the buttons provided. Do not use your browser's 'back' or
+                    'refresh' button.</h5></li>
+                <li><h5>Wording of questions mimics the real exam. It will be occasionally confusing and often use
+                    non-native sounding English.</h5></li>
+            </ul>
+            <br>
+            <form action="{{ url_for('exam.start_exam') }}" method="post">
+            <span class="center">
+                <button class="btn btn-secondary btn-lg" type="submit">Confirm</button>
+            </span>
+            </form>
+        </div>
+    </div>
+{% endblock %}

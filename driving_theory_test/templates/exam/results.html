@@ -1,0 +1,91 @@
+{% extends "layout/base.html" %}
+{% set active_page = 'results' %}
+{% block header %}{% endblock %}
+{% block title %}({{ total_correct }}/{{ total_quest }}) - Test Results {% endblock %}
+{% block extra_head %}
+    <link href="{{ url_for('static', filename='results.css') }}" rel="stylesheet">
+{% endblock %}
+{% block main %}
+    <div class="container py-4">
+        <header class="pb-3 mb-4 border-bottom">
+            <a href="{{ url_for('home.home') }}" class="d-flex align-items-center text-white text-decoration-none">
+                <span class="fs-4">Test Results</span>
+            </a>
+        </header>
+
+        <div class="p-5 mb-4 bg-dark bg-gradient text-white rounded-3">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">{{ pass_fail }}</h1>
+                <p class="fs-4">( {{ total_correct }} / {{ total_quest }} )</p>
+
+                <!--Extra message just for users where time ran out, so they don't get confused if info is missing-->
+                {% if time_up == True %}
+                    <h3>You ran out of time!</h3><br>
+                {% endif %}
+
+                <h5>Percentage score: <b>{{ percent_score }}%</b></h5>
+                {% if time_up != True %}
+                    <h5>You completed the exam in <b>{{ time_elapsed }}</b></h5>
+                {% endif %}
+                <h5><b>{{ time_remaining }}</b> remaining.</h5>
+                <h5>Average time per question: <b>{{ time_per_quest }}</b> seconds</h5>
+                <br>
+                <form action="{{ url_for('home.home') }}">
+                    <button class="btn btn-secondary btn-lg" type="submit">Retake Exam</button>
+                </form>
+            </div>
+        </div>
+
+        <header class="pb-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+                <span class="fs-4">Questions you got wrong</span>
+            </a>
+        </header>
+
+        {% for answer in failed_questions %}
+            <div class="row align-items-md-stretch text-black">
+                <div class="col-lg-4 col-md-12 col-sm-12 gy-3">
+                    <div class="h-100 p-5 bg-light  border rounded-3">
+                        <h5>Question {{ answer["q_id"]}}</h5>
+                        <p>{{ answer["quest_txt"]}}</p>
+                        <!-- images only display if there are any for that particular question-->
+                        {% if answer["quest_pic"] != None %}
+                            <img class="bg-light border rounded-3" src="/static/images/{{ answer['quest_pic'] }}"
+                                 alt="question picture" width="200">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 gy-3">
+                    <div class="h-100 p-5 bg-light border rounded-3">
+                        {% if answer["user_txt"] == None %}
+                            <p>Question skipped or time ran out.</p>
+                        {% else %}
+                            <h5>Your answer</h5>
+                            <p>{{ answer["user_txt"]}}</p>
+                            {% if answer["user_pic"] != None %}
+                                <img class="bg-light border rounded-3" src="/static/images/{{ answer['user_pic'] }}"
+                                     alt="question picture" width="200">
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 gy-3">
+                    <div class="h-100 p-5 bg-light border rounded-3">
+                        <h5>Correct answer</h5>
+                        <p>{{ answer["true_txt"]}}</p>
+                        {% if answer["true_pic"] != None %}
+                            <img class="bg-light border rounded-3" src="/static/images/{{ answer['true_pic'] }}"
+                                 alt="question picture" width="200">
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+
+        <a href="#top">
+            <button type="button" class="btn btn-secondary" id="scroll-to-top">Scroll to top</button>
+        </a>
+    </div>
+{% endblock %}
+
