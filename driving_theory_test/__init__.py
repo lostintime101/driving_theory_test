@@ -1,6 +1,6 @@
 import os
-
 from datetime import datetime, timedelta
+
 from flask import Flask
 from flask_jwt_extended import JWTManager
 

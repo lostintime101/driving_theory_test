@@ -19,15 +19,15 @@
                 <p class="fs-4">( {{ total_correct }} / {{ total_quest }} )</p>
 
                 <!--Extra message just for users where time ran out, so they don't get confused if info is missing-->
-                {% if time_up == True %}
+                {% if time_up %}
                     <h3>You ran out of time!</h3><br>
                 {% endif %}
 
                 <h5>Percentage score: <b>{{ percent_score }}%</b></h5>
-                {% if time_up != True %}
+                {% if not time_up %}
                     <h5>You completed the exam in <b>{{ time_elapsed }}</b></h5>
+                    <h5><b>{{ time_remaining }}</b> remaining.</h5>
                 {% endif %}
-                <h5><b>{{ time_remaining }}</b> remaining.</h5>
                 <h5>Average time per question: <b>{{ time_per_quest }}</b> seconds</h5>
                 <br>
                 <form action="{{ url_for('home.home') }}">

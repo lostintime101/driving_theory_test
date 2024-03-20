@@ -149,7 +149,7 @@ cursor:pointer;
     align-items: center;
 }
 .answer_card {
-    height: 30vh;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;

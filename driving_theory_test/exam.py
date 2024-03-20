@@ -74,6 +74,8 @@ def results():
     if not time_elapsed or not time_remaining:
         time_elapsed = datetime.now().timestamp() - float(claims.get("start_time"))
         time_remaining = float(claims.get("end_exam")) - datetime.now().timestamp()
+        if time_remaining < 0:
+            time_remaining = 0
 
     resp = make_response(
         render_template(
