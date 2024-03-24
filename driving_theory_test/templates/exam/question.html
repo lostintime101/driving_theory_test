@@ -1,0 +1,99 @@
+{% extends "layout/base.html" %}
+{% set active_page = 'question' %}
+{% block extra_head %}
+    <link href="{{ url_for('static', filename='question.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='question.js') }}"></script>
+    <script>
+        window.onload = function () {
+            display = document.querySelector('#time');
+            startTimer({{seconds}}, display);
+            history.pushState(null, null, location.href);
+        };
+        window.onpopstate = function () {
+            alert('Please use the \'Exit\' button to exit the test');
+            history.go(1);
+        };
+    </script>
+{% endblock %}
+{% block header %}
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+        <a class="d-flex align-items-center text-dark text-decoration-none">
+            <span class="fs-4">Theory Test Simulation</span>
+        </a>
+
+        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <a class="me-5 py-2 text-dark text-decoration-none">{{ current_index+1}} / {{ total }}</a>
+            <a class="me-5 py-2 text-dark text-decoration-none">Time remaining: <span id="time">--:--</span></a>
+            <form action="{{ url_for('exam.logout') }}" method="post" onsubmit="return confirmSubmit()">
+                <button type="submit" class="py-2 text-dark text-decoration-none" id="exit">Exit</button>
+            </form>
+        </nav>
+    </div>
+{% endblock %}
+{% block main %}
+    <div class="text-black">
+        <div class="progress">
+            <div class="progress-bar bg-secondary progress-bar-striped" role="progressbar" aria-label="Basic example"
+                 style="width: {{ progress }}%" aria-valuenow={{ current_index+1}} aria-valuemin="0"
+                 aria-valuemax={{ total }}>
+                {{ progress }}%
+            </div>
+        </div>
+
+        <div class="question_header">
+            <h2 style="margin: 0;">{{ question["question_text"] }}</h2>
+            {% if question["question_pic"] %}
+                <img class="bg-light border rounded-3 border-muted border-1 shadow-sm"
+                     src="/static/images/{{ question['question_pic'] }}" alt="question picture" width="250">
+            {% endif %}
+        </div>
+
+
+        <div class="button-container d-flex justify-content-between align-items-center">
+            <form action="{{ url_for('exam.previous_exam') }}" method="post" novalidate>
+                <button class="btn previous-button" id="previous" {{ 'disabled' if current_index == 0 else '' }}>
+                    Previous
+                </button>
+            </form>
+
+            <form action="{{ url_for('exam.exam') }}" method="post"
+                    {{ 'onsubmit=checkBeforeSubmit()' if training_mode else '' }} novalidate>
+                <input type="hidden" name="Answer" value="0" id="user_ans"/>
+                <button class="btn next-button" id="next">{{ 'Check answer' if training_mode else 'Next'}} </button>
+            </form>
+        </div>
+
+
+        <div class="row row-cols-1 row-cols-md-2 mb-2 text-center">
+            {% for number, answer in question["answers"].items() %}
+                <div class="col gy-3">
+                    <div class="card mb-4 rounded-3 shadow-sm answer_card" id="ans_{{ number }}">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">Answer {{ number }}</h4>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            {% if answer["pic"] %}
+                                <img class="bg-light border rounded-3 mb-3" src="/static/images/{{ answer['pic'] }}"
+                                     alt="question picture" width="250">
+                            {% endif %}
+                            <div>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li><h5>{{ answer["text"] }}</h5></li>
+                                </ul>
+                            </div>
+                            <div class="mt-auto">
+                                <button type="submit" onclick="setAnswer({{ number }})"
+                                        class="w-100 btn btn-lg btn-secondary">Select
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <!-- Set the currently selected answer -->
+            {% if question["user_ans"] %}
+                <script>setAnswer({{ question["user_ans"] }})</script>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

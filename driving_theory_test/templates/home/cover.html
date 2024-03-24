@@ -1,0 +1,34 @@
+{% extends "layout/base.html" %}
+{% set active_page = 'home' %}
+{% block main %}
+    <h1>Thailand Driving License Theory Test Simulation 🚗</h1>
+    <h2>(Car & Motorbike)</h2>
+    <h2 class="thai">การทดสอบการขับขี่</h2>
+    <br>
+    <p class="lead">Mini is 10 questions, full is 50</p>
+
+    <form class="answer_button" action="{{ url_for('exam.pre_exam') }}" method="post" novalidate>
+        <input type="submit" class="btn btn-lg btn-secondary fw-bold d-inline border-white bg-white mt-4 m-4"
+               name="exam_type" value="Mini Exam"/>
+        <input type="submit" class="btn btn-lg btn-secondary fw-bold d-inline border-white bg-white mt-4 m-4"
+               name="exam_type" value="Full Exam"/>
+        <br>
+        <!-- TODO : Allow to display correct answer as soon as the user validate it (better for memorization) -->
+        <label for="training_mode" class="px-2">Exam Mode</label>
+        <label class="toggle-btn">
+            <input type="checkbox" id="training_mode" name="training_mode" value="off" onclick="toggleTrainingMode()">
+            <span class="slider round"></span>
+        </label>
+        <label for="training_mode" class="px-2">Training Mode</label>
+    </form>
+    <script>
+        function toggleTrainingMode() {
+            const toggleInput = document.getElementById('training_mode');
+            if (toggleInput.value === 'off') {
+                toggleInput.value = 'on';
+            } else {
+                toggleInput.value = 'off';
+            }
+        }
+    </script>
+{% endblock %}
