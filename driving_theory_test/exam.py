@@ -5,7 +5,7 @@ import math
 from flask import Blueprint, redirect, render_template, request, url_for, jsonify, make_response
 from flask_jwt_extended import jwt_required, get_jwt, unset_jwt_cookies, set_access_cookies, create_access_token
 
-from driving_theory_test import format_duration, update_user_token
+from driving_theory_test.utils import format_duration, update_user_token
 from driving_theory_test.db import get_question_id, create_question_bank
 
 bp = Blueprint("exam", __name__, url_prefix="/exam")
@@ -19,7 +19,7 @@ def get_answer():
         answers: list = claims.get("answers")
         question = get_question_id(answers[claims.get("current_index")][0])
         return jsonify({"ans_id": question[11]})
-    return make_response(jsonify({"error": "Exam mode... Not cheating!"}), 400)
+    return make_response(jsonify({"error": "Exam mode... No cheating!"}), 400)
 
 
 @bp.route("/results", methods=["GET"])
