@@ -38,6 +38,8 @@ def get_question_id(q_id):
         "SELECT * FROM question_bank WHERE q_id = ?",
         (q_id,),
     ).fetchall()
+    if not len(rows):
+        raise ValueError(f"question {q_id} not found")
     return rows[0]
 
 

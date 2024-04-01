@@ -1,10 +1,8 @@
 import os
+
 from datetime import datetime, timedelta
-
-from flask import Flask
+from flask import Flask, make_response, jsonify
 from flask_jwt_extended import JWTManager
-
-from .utils import format_duration, update_user_token
 
 
 def create_app(*args, **kwargs):
@@ -27,5 +25,9 @@ def create_app(*args, **kwargs):
     @app.context_processor
     def inject_now():
         return {'now': datetime.utcnow()}
+
+    @app.errorhandler(Exception)
+    def all_exception_handler(error):
+        return make_response(jsonify({"error": f"Error : {error.args}"}), 400)
 
     return app

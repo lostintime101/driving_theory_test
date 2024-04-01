@@ -22,7 +22,9 @@
         </a>
 
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-            <a class="me-5 py-2 text-dark text-decoration-none">{{ current_index+1}} / {{ total }}</a>
+            <div class="me-5 py-2 text-dark text-decoration-none" data-toggle="tooltip" title="Question {{ question['id'] }}">
+                {{ current_index+1}} / {{ total }}
+            </div>
             <a class="me-5 py-2 text-dark text-decoration-none">Time remaining: <span id="time">--:--</span></a>
             <form action="{{ url_for('exam.logout') }}" method="post" onsubmit="return confirmSubmit()">
                 <button type="submit" class="py-2 text-dark text-decoration-none" id="exit">Exit</button>
