@@ -1,10 +1,9 @@
 [project]
 name = "driving_theory_test"
-version = "2.0.0"
+version = "2.1.0"
 description = "Thai Driving License Theory Test Simulation (Car & Motorbike)"
 authors = [
-    {email = "mbmatthewbrennan@gmail.com"},
-    {email = "impermanent_gains@proton.me"},
+    {email = "lostintime101dev@gmail.com"},
     {email = "baptiste@swano-lab.net"}
 ]
 dependencies = [

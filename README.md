@@ -6,13 +6,13 @@ This app is hosted at: https://thaidrivingtest.com/
 
 The project was put together in PyCharm using Python 3.9 with Flask, and Gunicorn WSGI. The front end makes extensive use of Bootstrap. 
 
-Questions are adapted from the Driving License Requisition Manual issued by the Thailand Department of Land Transport
+Questions are adapted from the Driving License Requisition Manual issued by the Thailand Department of Land Transport.
 
 The question database contains 150 questions, many with pictures (Small: 250 pixel width).
 
 The app simulates the conditions of the real exam: 50 questions in 50 minutes. Each question is multiple choice with 4 options. Pass rate is 90%.
 
-Question wording matches that of the real exam (i.e. occasionally confusing, often non-native sounding English)
+Question wording matches that of the real exam (i.e. occasionally confusing, often non-native sounding English).
 
 ##### Technical spec 
 
