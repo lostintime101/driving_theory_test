@@ -15,9 +15,8 @@ def create_app(*args, **kwargs):
     app.config.from_mapping(
         SECRET_KEY="dev", DATABASE=os.path.join(app.root_path, "question_bank.db")
     )
-    from . import home, db, exam
+    from . import home, exam
 
-    db.init_app(app)
     app.register_blueprint(home.bp)
     app.register_blueprint(exam.bp)
     app.config["JWT_SECRET_KEY"] = config.get("DEFAULT", "JWT_SECRET_KEY")

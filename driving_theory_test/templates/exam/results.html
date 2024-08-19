@@ -49,7 +49,7 @@
                         <h5>Question {{ answer["q_id"]}}</h5>
                         <p>{{ answer["quest_txt"]}}</p>
                         <!-- images only display if there are any for that particular question-->
-                        {% if answer["quest_pic"] != None %}
+                        {% if answer["quest_pic"] %}
                             <img class="bg-light border rounded-3" src="/static/images/{{ answer['quest_pic'] }}"
                                  alt="question picture" width="200">
                         {% endif %}
@@ -62,7 +62,7 @@
                         {% else %}
                             <h5>Your answer</h5>
                             <p>{{ answer["user_txt"]}}</p>
-                            {% if answer["user_pic"] != None %}
+                            {% if answer["user_pic"] %}
                                 <img class="bg-light border rounded-3" src="/static/images/{{ answer['user_pic'] }}"
                                      alt="question picture" width="200">
                             {% endif %}
@@ -73,7 +73,7 @@
                     <div class="h-100 p-5 bg-light border rounded-3">
                         <h5>Correct answer</h5>
                         <p>{{ answer["true_txt"]}}</p>
-                        {% if answer["true_pic"] != None %}
+                        {% if answer["true_pic"] %}
                             <img class="bg-light border rounded-3" src="/static/images/{{ answer['true_pic'] }}"
                                  alt="question picture" width="200">
                         {% endif %}
