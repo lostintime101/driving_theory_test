@@ -3,3 +3,4 @@
 venv/
 .venv/
 Dockerfile
+configuration.ini
