@@ -22,7 +22,7 @@ def create_app(*args, **kwargs):
     app.config["JWT_SECRET_KEY"] = config.get("DEFAULT", "JWT_SECRET_KEY")
     app.config["JWT_TOKEN_LOCATION"] = ["cookies"]
     app.config["JWT_COOKIE_CSRF_PROTECT"] = False
-    app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=2)
+    app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(days=7)
     jwt = JWTManager(app)
 
     @app.context_processor
@@ -31,7 +31,7 @@ def create_app(*args, **kwargs):
 
     @app.errorhandler(404)
     def not_found(e):
-        return render_template("home/not_found.html")
+        return render_template("home/not_found.html"), 404
 
     @jwt.unauthorized_loader
     def unauthorized_loader(e):
