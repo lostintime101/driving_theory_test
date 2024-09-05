@@ -2,12 +2,15 @@ import uuid
 from datetime import datetime
 
 import math
-from flask import Blueprint, redirect, render_template, request, url_for, jsonify, make_response, g
+from flask import Blueprint, redirect, render_template, request, url_for, jsonify, make_response
 from flask_jwt_extended import jwt_required, get_jwt, unset_jwt_cookies, set_access_cookies, create_access_token
 
+from driving_theory_test.models import ExamQuestions
 from driving_theory_test.utils import format_duration, update_user_token
 
 bp = Blueprint("exam", __name__, url_prefix="/exam")
+
+exam_db = ExamQuestions("./driving_theory_test/questions_bank.csv")
 
 
 @bp.route("/get_answer", methods=["POST"])
@@ -16,7 +19,7 @@ def get_answer():
     claims = get_jwt()
     if claims.get("training_mode"):
         answers: list = claims.get("answers")
-        question = g.db.get_question_id(answers[claims.get("current_index")][0])
+        question = exam_db.get_question_id(answers[claims.get("current_index")][0])
         return jsonify({"ans_id": question["ans_num"]})
     return make_response(jsonify({"error": "Exam mode... No cheating!"}), 400)
 
@@ -37,7 +40,7 @@ def results():
     score = 0
     #  Compute result
     for answer in answers:
-        question = g.db.get_question_id(answer[0])
+        question = exam_db.get_question_id(answer[0])
         if question["ans_num"] == answer[1]:
             score += 1
         else:
@@ -131,7 +134,7 @@ def exam():
         current_index += 1
         resp = make_response(redirect(url_for("exam.exam")))
     else:
-        question = g.db.get_question_id(answers[current_index][0])
+        question = exam_db.get_question_id(answers[current_index][0])
         question_formatted = {
             "id": question["q_id"],
             "question_text": question["q_txt"],
@@ -214,7 +217,7 @@ def pre_exam():
         "number_of_questions": str(number_of_questions),
         "answers": [],
     }
-    for selected_question in g.db.create_question_bank(number_of_questions):
+    for selected_question in exam_db.create_question_bank(number_of_questions):
         # Q_id, user answer
         exam_data["answers"].append(
             (
