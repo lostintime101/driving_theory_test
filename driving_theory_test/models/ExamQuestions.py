@@ -8,7 +8,7 @@ class ExamQuestions:
     def __init__(self, path: str):
         self.questions_bank = {}
         with open(Path(path), 'r', encoding="UTF-8") as question_bank:
-            csv_reader = csv.DictReader(question_bank, delimiter=";")
+            csv_reader = csv.DictReader(question_bank, delimiter=",")
             for rows in csv_reader:
                 q_id = int(rows['q_id'])
                 self.questions_bank[q_id] = rows
