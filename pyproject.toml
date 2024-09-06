@@ -1,6 +1,6 @@
 [project]
 name = "driving_theory_test"
-version = "2.1.0"
+version = "2.2.0"
 description = "Thai Driving License Theory Test Simulation (Car & Motorbike)"
 authors = [
     {email = "lostintime101dev@gmail.com"},

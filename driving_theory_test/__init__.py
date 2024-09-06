@@ -1,29 +1,31 @@
-import os
 import configparser
+import logging
 
 from datetime import datetime, timedelta
 from flask import Flask, make_response, jsonify, render_template, redirect
 from flask_jwt_extended import JWTManager
 
 config = configparser.ConfigParser()
-config.read_file(open('./configuration.ini', "r"))
 
 
 def create_app(*args, **kwargs):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        SECRET_KEY="dev", DATABASE=os.path.join(app.root_path, "question_bank.db")
-    )
-    from . import home, db, exam
+    from . import home, exam
 
-    db.init_app(app)
     app.register_blueprint(home.bp)
     app.register_blueprint(exam.bp)
-    app.config["JWT_SECRET_KEY"] = config.get("DEFAULT", "JWT_SECRET_KEY")
+    app.config["JWT_SECRET_KEY"] = "defaults3cr3t"
     app.config["JWT_TOKEN_LOCATION"] = ["cookies"]
     app.config["JWT_COOKIE_CSRF_PROTECT"] = False
-    app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=2)
+    app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(days=7)
+
+    try:
+        config.read_file(open('./configuration.ini', "r"))
+        app.config["JWT_SECRET_KEY"] = config.get("DEFAULT", "JWT_SECRET_KEY")
+    except (FileNotFoundError, configparser.NoOptionError):
+        logging.warning("Configuration file not found. Proceeding with default values.")
+
     jwt = JWTManager(app)
 
     @app.context_processor
@@ -32,7 +34,7 @@ def create_app(*args, **kwargs):
 
     @app.errorhandler(404)
     def not_found(e):
-        return render_template("home/not_found.html")
+        return render_template("home/not_found.html"), 404
 
     @jwt.unauthorized_loader
     def unauthorized_loader(e):
