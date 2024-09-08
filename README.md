@@ -31,3 +31,5 @@ Start the App for deployment in prod
 #### Screenshots
 
 ![qestion](https://github.com/lostintime101/driving_theory_test/assets/92709487/fec45cee-4f96-42dc-b45a-c8b10f2ed365)
+
+![home](https://github.com/user-attachments/assets/203fa4c1-6ae0-47cd-be90-3e87174368f1)
