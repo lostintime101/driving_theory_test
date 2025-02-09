@@ -1,9 +1,5 @@
 function confirmSubmit() {
-    if (confirm("All progress will be lost. Are you sure?") == true) {
-        return true
-    } else {
-        return false
-    }
+    return confirm("All progress will be lost. Are you sure?")
 }
 
 function setTime(timer) {

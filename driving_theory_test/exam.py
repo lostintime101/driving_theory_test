@@ -2,6 +2,7 @@ import uuid
 from datetime import datetime
 
 import math
+import urllib.parse
 from flask import Blueprint, redirect, render_template, request, url_for, jsonify, make_response
 from flask_jwt_extended import jwt_required, get_jwt, unset_jwt_cookies, set_access_cookies, create_access_token
 
@@ -11,6 +12,10 @@ from driving_theory_test.utils import format_duration, update_user_token
 bp = Blueprint("exam", __name__, url_prefix="/exam")
 
 exam_db = ExamQuestions("./driving_theory_test/questions_bank.csv")
+
+
+def _get_report_url(question_id) -> str:
+    return "mailto:lostintime101dev@gmail.com?" + urllib.parse.urlencode({"subject": f"Issue question #{question_id}"})
 
 
 @bp.route("/get_answer", methods=["POST"])
@@ -158,6 +163,7 @@ def exam():
                 seconds=seconds_left,
                 training_mode=training_mode,
                 progress=int((current_index / number_of_questions) * 100),
+                report_url=_get_report_url(question["q_id"])
             )
         )
 
