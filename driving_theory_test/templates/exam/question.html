@@ -26,9 +26,16 @@
                 {{ current_index+1}} / {{ total }}
             </div>
             <a class="me-5 py-2 text-dark text-decoration-none">Time remaining: <span id="time">--:--</span></a>
-            <form action="{{ url_for('exam.logout') }}" method="post" onsubmit="return confirmSubmit()">
-                <button type="submit" class="py-2 text-dark text-decoration-none" id="exit">Exit</button>
-            </form>
+            <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center gap-3">
+                <form action="{{ url_for('exam.logout') }}" method="post" onsubmit="return confirmSubmit()">
+                    <button type="submit" class="py-2 text-dark text-decoration-none btn btn-info" id="exit">
+                        Exit
+                    </button>
+                </form>
+                <button type="button" class="py-2 btn btn-light" data-bs-toggle="modal" data-bs-target="#reportIssue"
+                        aria-label="Report issue with the question">🚩
+                </button>
+            </div>
         </nav>
     </div>
 {% endblock %}
@@ -98,4 +105,5 @@
             {% endif %}
         </div>
     </div>
+    {% include 'exam/report_modal.html' %}
 {% endblock %}

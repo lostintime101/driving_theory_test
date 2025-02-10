@@ -1,0 +1,55 @@
+<!-- Report issue modal -->
+<div class="modal fade text-black" id="reportIssue" tabindex="-1" aria-labelledby="reportIssueModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reportIssueModalLabel">Having an issue? Let us know!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    To report a problem, please send an email to
+                    <a href="{{ report_url }}" target="_blank">lostintime101dev@gmail.com</a>
+                    with the following details:
+                </p>
+
+
+                <div style="background: #f8f9fa; padding: 10px; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 15px;">
+                    <h6 style="margin-bottom: 5px;">📌 For Question-Related Issues</h6>
+                    <ul style="list-style: none; padding-left: 0; margin: 0;">
+                        <li>🔹 <strong>Question number:</strong> <code>{{ question['id'] }}</code></li>
+                        <li>🔹 A brief description of the issue and why the answer is incorrect.</li>
+                    </ul>
+                </div>
+
+                <div style="background: #eef6ff; padding: 10px; border-radius: 8px; border: 1px solid #cce5ff;">
+                    <h6 style="margin-bottom: 5px;">⚙️ For Technical Issues</h6>
+                    <ul style="list-style: none; padding-left: 0; margin: 0;">
+                        <li>🔹 Steps to reproduce the error.</li>
+                        <li>🔹 A screenshot of the issue (<a href="https://excalidraw.com" target="_blank">use
+                            Excalidraw to annotate</a> if needed).
+                        </li>
+                        <li>🔹 Your device model (for mobile users).</li>
+                    </ul>
+                </div>
+
+                <hr>
+
+                <p>
+                    Alternatively, you can create an
+                    <a href="https://github.com/lostintime101/driving_theory_test/issues/new" target="_blank">
+                        issue on GitHub
+                    </a>
+                    or even
+                    <a href="https://github.com/lostintime101/driving_theory_test/fork" target="_blank">fork the
+                        project</a>,
+                    fix the bug, and submit a pull request!
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
