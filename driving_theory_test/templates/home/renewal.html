@@ -1,0 +1,110 @@
+{% extends "layout/base.html" %}
+{% set active_page = 'renewal' %}
+{% block title %}Renewing a Thai Driving License (2 Year to 5 Year){% endblock %}
+{% block extra_head %}
+    {{ super() }}
+    <style>
+        /* The dark theme's body text-shadow blurs the diagram labels */
+        .mermaid svg text {
+            text-shadow: none;
+        }
+    </style>
+{% endblock %}
+{% block main %}
+    <h2>Renewing Your License</h2>
+    <h3 class="thai">การต่ออายุใบขับขี่</h3>
+    <p class="lead">Notes on converting a temporary 2 year Thai driving license into a 5 year license, based on a
+        recent (July 2026) renewal at the
+        <a target="_blank" href="https://maps.app.goo.gl/TpKwVTsyuSZZkAZB7" class="text-white">Department of Land
+            Transport (Bang Chak)</a>
+        by a French national.</p>
+
+    <h4 class="mt-5">When to go?</h4>
+    <p class="lead">
+        Do not wait too long after your license has expired.
+    </p>
+    <p class="lead">
+        You may have to retake the theory exam or sit through the training video again.
+    </p>
+
+    <h4 class="mt-5">Before You Go</h4>
+    <p class="lead">
+        Book an appointment on
+        <a href="https://gecc.dlt.go.th/dltsmartqueue/main" target="_blank" class="text-white">DLT Smart Queue</a>.
+    </p>
+    <p class="lead">
+        Appointments are rare and can be very far-away in the future, anticipate.
+    </p>
+    <p class="lead">
+        This is mandatory, they <em>might</em> not let you through without a QR code.
+    </p>
+    <h4 class="mt-5">Originals to Bring</h4>
+    <ul class="lead text-start">
+        <li>Your passport</li>
+        <li>Your current driving licenses</li>
+        <li>A health certificate issued less than 30 days ago</li>
+        <li>Your TM30, or an equivalent proof of address if you own your place</li>
+        <li>A certificate of residency stamped by your embassy or consulate <strong>(as many as you have license to
+            renew)</strong></li>
+    </ul>
+
+    <h4 class="mt-5">Copies</h4>
+    <p class="lead">Bring one full set of the copies below <em>per license you are renewing</em>.</p>
+    <ul class="lead text-start">
+        <li>Your passport</li>
+        <li>Your work permit, or whichever other residency permit you hold</li>
+        <li>The passport page bearing <strong>your initial entry stamp for Thailand</strong>.
+        </li>
+        <li>Your health certificate. The original covers the
+            first license, so you just need a copy for each additional one.
+        </li>
+    </ul>
+
+    <h4 class="mt-5">Fees</h4>
+    <ul class="lead text-start">
+        <li>Car license: 505 THB</li>
+        <li>Motorbike license: 255 THB</li>
+    </ul>
+
+    <h4 class="mt-5">On the Day</h4>
+    <p class="lead">Show up early and properly dressed. This is a government office, so beachwear is not the thing to
+        turn up in.</p>
+    <p class="lead">When the staff call for foreigners, go straight to the foreigner queue.</p>
+    <p class="lead">Expect around two hours in total. It can take considerably longer if you arrive late and end up
+        waiting through the lunch break.</p>
+
+    <pre class="mermaid">
+flowchart TD
+    A(["Arrive early"]) --> B["⏳ Wait in the tent<br/>(open at 7:30)"]
+    B --> C["Queue 3 · Reception<br/>papers checked"]
+    C --> D["Booth 2<br/>registered in the system"]
+    D --> E["Booth 3 · Physical tests<br/>depth perception, brake reflexes"]
+    E --> F["⏳ Booth 4<br/>the long wait"]
+    F --> G["Photo, fees, new license printed"]
+    G --> H(["Done"])
+
+    classDef terminus fill:#198754,stroke:#0f5132,color:#fff
+    classDef waiting fill:#664d03,stroke:#997404,color:#fff
+    class A,H terminus
+    class B,F waiting
+</pre>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+        mermaid.initialize({startOnLoad: true, theme: 'dark'});
+    </script>
+
+    <br>
+    <p class="lead">This page reflects one personal experience and is not official guidance.</p>
+    <p class="lead">Requirements differ from one office and one nationality to the next, and they change over time.</p>
+    <p class="lead"> If
+        your own renewal went differently, please
+        <a href="https://github.com/lostintime101/driving_theory_test/issues/new" target="_blank" class="text-white">open
+            an issue</a>
+        or send a
+        <a href="https://github.com/lostintime101/driving_theory_test/pulls" target="_blank" class="text-white">pull
+            request</a>
+        so this page can be kept up to date for everyone.
+    </p>
+{% endblock %}
