@@ -15,7 +15,8 @@ def create_app(*args, **kwargs):
 
     app.register_blueprint(home.bp)
     app.register_blueprint(exam.bp)
-    app.config["JWT_SECRET_KEY"] = "defaults3cr3t"
+    # Must stay >= 32 bytes: PyJWT warns below the RFC 7518 minimum for HS256
+    app.config["JWT_SECRET_KEY"] = "defaults3cr3t-override-in-configuration-ini"
     app.config["JWT_TOKEN_LOCATION"] = ["cookies"]
     app.config["JWT_COOKIE_CSRF_PROTECT"] = False
     app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(days=7)

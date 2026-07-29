@@ -1,16 +1,18 @@
 [project]
 name = "driving_theory_test"
-version = "2.2.0"
+version = "2.3.0"
 description = "Thai Driving License Theory Test Simulation (Car & Motorbike)"
 authors = [
     {email = "lostintime101dev@gmail.com"},
-    {email = "baptiste@swano-lab.net"}
+    {email = "swano@ik.me"}
 ]
+requires-python = ">= 3.11"
 dependencies = [
-    "flask ~= 3.0.2",
-    "gunicorn == 21.2.0",
-    "Jinja2 == 3.1.3",
-    "flask-jwt-extended == 4.6.0",
+    "flask ~= 3.1.3",
+    "gunicorn == 26.0.0",
+    "Jinja2 == 3.1.6",
+    "Werkzeug == 3.1.8",
+    "flask-jwt-extended == 4.7.4",
 ]
 license = {file = "LICENSE.md"}
 
