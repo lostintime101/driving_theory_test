@@ -28,6 +28,8 @@
                         <a class="nav-link fw-bold py-1 px-0 {{ 'active' if active_page == 'home' }}"
                            aria-current="page"
                            href="{{ url_for('home.home') }}">Home</a>
+                        <a class="nav-link fw-bold py-1 px-0 {{ 'active' if active_page == 'renewal' }}"
+                           href="{{ url_for('home.renewal') }}">Renewal</a>
                         <a class="nav-link fw-bold py-1 px-0 {{ 'active' if active_page == 'about' }}"
                            href="{{ url_for('home.about') }}">About</a>
                     </nav>

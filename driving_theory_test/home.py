@@ -8,6 +8,11 @@ def home():
     return render_template("home/cover.html")
 
 
+@bp.route("/renewal")
+def renewal():
+    return render_template("home/renewal.html")
+
+
 @bp.route("/about")
 def about():
     return render_template("home/about.html")
